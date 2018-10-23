@@ -49,11 +49,16 @@ def check_predictions(predict, label):
     error = 0
     for i in range(len(label)):
         if predict[i] != label[i][0]: error += 1
-    return error/len(label)
+    return 1 - error/len(label)
 
 
 train, label_train = load_file("pa2_train.csv", has_label=True)
-train_w = online_perceptron(train, label_train, 15)
+# train_w = online_perceptron(train, label_train, 15)
 valid, label_valid = load_file("pa2_valid.csv", has_label=True)
-p_valid = online_predict(valid, train_w)
-print(check_predictions(p_valid, label_valid))
+# p_valid = online_predict(valid, train_w)
+# print(check_predictions(p_valid, label_valid))
+
+for i in range(20):
+    train_w = online_perceptron(train, label_train, i)
+    p_valid = online_predict(valid, train_w)
+    print("i:", i, "Accuracy",round(check_predictions(p_valid, label_valid) * 100, 3), " %")
