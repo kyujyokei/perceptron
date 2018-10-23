@@ -28,33 +28,25 @@ def online_perceptron(data, label, iter):
         for i in range(len(data)):
             x = np.matrix(data[i]) # 1*785 matrix
             g = np.matmul(x, w)  # 1*1 matrix
-            # print("X: ", x.shape," W: ", w.shape)
 
             u = 1 if g >= 0 else -1
 
             if label[i][0] * u <= 0:
-                # temp = np.transpose(data[i])
-                # print(len(data[i]), data[i][0])
-                # print("label: ", label[i].shape, " X: ", x.shape)
                 a = np.dot(label[i], x) # 1*785 matrix
-                # print("A: ", a.shape)
                 w = w + a.T
-            # print("-------------------")
+
     return w
 
 def online_predict(data, w):
     predictions = []
     for i in range(len(data)):
         x = np.matrix(data[i])
-        # print(x.shape, w.shape)
         predict = 1 if np.matmul(x, w) >=0 else -1
         predictions.append(predict)
     return predictions
 
 def check_predictions(predict, label):
     error = 0
-    # print(len(label))
-    # print(len(predict))
     for i in range(len(label)):
         if predict[i] != label[i][0]: error += 1
     return error/len(label)
