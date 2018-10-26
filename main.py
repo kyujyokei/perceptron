@@ -215,7 +215,7 @@ predicitng test data
 
 
 test = load_file("pa2_test_no_label.csv", has_label=False)
-w_train = online_perceptron(train, label_train, 10)
+w_train = online_perceptron(train, label_train, 4)
 p_test = online_predict(test, w_train)
 with open('oplabel.csv', mode='w') as out:
     write = csv.writer(out, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
