@@ -124,19 +124,19 @@ with open('accuracy.csv', mode='w') as out:
         print("i:", i, "Train: ",acc_train, "  Valid: ", acc_valid)
 
     print("------------------AVERAGE")
-
+    write.writerow(['AVERAGE'])
     for i in range(16):
         train_w = average_perception(train, label_train, i)
         p_train = average_predict(train, train_w)
         p_valid = average_predict(valid, train_w)
         acc_train = round(check_predictions(p_train, label_train) * 100, 3)
         acc_valid = round(check_predictions(p_valid, label_valid) * 100, 3)
-        write.writerow(['AVERAGE'])
         write.writerow([i, acc_train, acc_valid])
         print("i:", i, "Train: ", acc_train, "  Valid: ", acc_valid)
 
     print("------------------KERNEL")
     ps = [1, 2, 3, 7, 15]
+    write.writerow(['KERNEL'])
     for p in ps :
         print("  ------------------P: ", p)
         for i in range(16):
@@ -145,7 +145,6 @@ with open('accuracy.csv', mode='w') as out:
             p_valid = kernel_predict(train, valid, label_train, a_train, p)
             acc_train = round(check_predictions(p_train, label_train) * 100, 3)
             acc_valid = round(check_predictions(p_valid, label_valid) * 100, 3)
-            write.writerow(['KERNEL'])
             write.writerow([p, i, acc_train, acc_valid])
             print("i:", i, "Train: ", acc_train, "  Valid: ", acc_valid)
             # print("i:", i, "Train: ", round(check_predictions(p_train, label_train) * 100, 3), "  Valid: ", round(check_predictions(p_valid, label_valid) * 100, 3))
