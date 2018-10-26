@@ -98,10 +98,8 @@ def kernel_predict(train_x, test_x, train_y, a, p):
     return np.sign(np.matmul(K, np.multiply(train_y, a)))
 
 train, label_train = load_file("pa2_train.csv", has_label=True)
-# train_w = online_perceptron(train, label_train, 15)
 valid, label_valid = load_file("pa2_valid.csv", has_label=True)
-# p_valid = online_predict(valid, train_w)
-# print(check_predictions(p_valid, label_valid))
+
 
 def check_kernel_predictions(predict, label):
     error = 0
@@ -110,27 +108,44 @@ def check_kernel_predictions(predict, label):
         if predict[i][0] != label[i][0]: error += 1
     return 1 - error/len(label)
 
-# print("------------------ONLINE")
-#
-# for i in range(16):
-#     train_w = online_perceptron(train, label_train, i)
-#     p_train = online_predict(train, train_w)
-#     p_valid = online_predict(valid, train_w)
-#     print("i:", i, "Train: ",round(check_predictions(p_train, label_train) * 100, 3), "  Valid: ", round(check_predictions(p_valid, label_valid) * 100, 3))
-#
-# print("------------------AVERAGE")
 
-# for i in range(16):
-    # train_w = average_perception(train, label_train, i)
-    # p_train = average_predict(train, train_w)
-    # p_valid = average_predict(valid, train_w)
-    # print("i:", i, "Train: ", round(check_predictions(p_train, label_train) * 100, 3), "  Valid: ", round(check_predictions(p_valid, label_valid) * 100, 3))
+with open('accuracy.csv', mode='w') as out:
+    write = csv.writer(out, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-print("------------------KERNEL")
-ps = [1, 2, 3, 7, 15]
-for p in ps :
-    print("  ------------------P: ", p)
+    print("------------------ONLINE")
+    write.writerow(['i','Train','Valid'])
     for i in range(16):
-        a_train = kernel_perceptron(train, label_train, i, p)
-        p_train = kernel_predict(train, train, label_train, a_train, p)
-        print("i:", i, "Train: ", round(check_predictions(p_train, label_train) * 100, 3))
+        train_w = online_perceptron(train, label_train, i)
+        p_train = online_predict(train, train_w)
+        p_valid = online_predict(valid, train_w)
+        acc_train = round(check_predictions(p_train, label_train) * 100, 3)
+        acc_valid = round(check_predictions(p_valid, label_valid) * 100, 3)
+        write.writerow([i, acc_train, acc_valid])
+        print("i:", i, "Train: ",acc_train, "  Valid: ", acc_valid)
+
+    print("------------------AVERAGE")
+
+    for i in range(16):
+        train_w = average_perception(train, label_train, i)
+        p_train = average_predict(train, train_w)
+        p_valid = average_predict(valid, train_w)
+        acc_train = round(check_predictions(p_train, label_train) * 100, 3)
+        acc_valid = round(check_predictions(p_valid, label_valid) * 100, 3)
+        write.writerow(['AVERAGE'])
+        write.writerow([i, acc_train, acc_valid])
+        print("i:", i, "Train: ", acc_train, "  Valid: ", acc_valid)
+
+    print("------------------KERNEL")
+    ps = [1, 2, 3, 7, 15]
+    for p in ps :
+        print("  ------------------P: ", p)
+        for i in range(16):
+            a_train = kernel_perceptron(train, label_train, i, p)
+            p_train = kernel_predict(train, train, label_train, a_train, p)
+            p_valid = kernel_predict(train, valid, label_train, a_train, p)
+            acc_train = round(check_predictions(p_train, label_train) * 100, 3)
+            acc_valid = round(check_predictions(p_valid, label_valid) * 100, 3)
+            write.writerow(['KERNEL'])
+            write.writerow([p, i, acc_train, acc_valid])
+            print("i:", i, "Train: ", acc_train, "  Valid: ", acc_valid)
+            # print("i:", i, "Train: ", round(check_predictions(p_train, label_train) * 100, 3), "  Valid: ", round(check_predictions(p_valid, label_valid) * 100, 3))
