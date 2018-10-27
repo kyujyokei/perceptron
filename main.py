@@ -4,8 +4,8 @@ import csv
 """
 loads the csv file 
 
-filename: string, the filename of csv, has to include ".csv"
-has_label: boolean, true if the data contains label to verify prediction
+@ filename: string, the filename of csv, has to include ".csv"
+@ has_label: boolean, true if the data contains label to verify prediction
 
 """
 
@@ -30,9 +30,9 @@ def load_file(filename, has_label=True):
 """
 trains and outputs the trained weight using online perceptron
 
-data: matrix, the data used for training
-label: matrix, the label (actual y) of the data
-iters: integer, the number of iterations to train the model
+@ data: matrix, the data used for training
+@ label: matrix, the label (actual y) of the data
+@ iters: integer, the number of iterations to train the model
 """
 
 def online_perceptron(data, label, iters):
@@ -56,8 +56,8 @@ def online_perceptron(data, label, iters):
 """
 generates predictions using weights trained by online perceptron method
 
-data: matrix, the data used for prediction
-w: matrix, trained weights
+@ data: matrix, the data used for prediction
+@ w: matrix, trained weights
 """
 
 def online_predict(data, w):
@@ -74,9 +74,9 @@ def online_predict(data, w):
 """
 trains and outputs the trained weight using average perceptron
 
-data: matrix, the data used for training
-label: matrix, the label (actual y) of the data
-iters: integer, the number of iterations to train the model
+@ data: matrix, the data used for training
+@ label: matrix, the label (actual y) of the data
+@ iters: integer, the number of iterations to train the model
 """
 def average_perception(data, label, iters):
     w = np.zeros((len(data[0]), 1))  # 785*1 matrix
@@ -107,8 +107,8 @@ def average_perception(data, label, iters):
 """
 generates predictions using weights trained by average perceptron method
 
-data: matrix, the data used for prediction
-w: matrix, trained weights
+@ data: matrix, the data used for prediction
+@ w: matrix, trained weights
 """
 def average_predict(data, w):
     return np.sign(np.dot(data, w))
@@ -116,10 +116,10 @@ def average_predict(data, w):
 """
 trains and outputs the trained weight using kernel perceptron
 
-data: matrix, the data used for training
-label: matrix, the label (actual y) of the data
-iters: integer, the number of iterations to train the model
-p: the dimensions of the kernel method
+@ data: matrix, the data used for training
+@ label: matrix, the label (actual y) of the data
+@ iters: integer, the number of iterations to train the model
+@ p: the dimensions of the kernel method
 """
 def kernel_perceptron(data, label, iters, p):
     a = np.zeros((len(data), 1))  # 4888*1 matrix
@@ -134,11 +134,11 @@ def kernel_perceptron(data, label, iters, p):
 """
 generates predictions using weights trained by kernel perceptron method
 
-train_x: matrix, the data set from training
-test_x: matrix, the data set from test
-train_y: matrix, true y values for the training set
-a:  matrix, the alpha matrix
-p: integer, number of dimensions in the kernel function
+@ train_x: matrix, the data set from training
+@ test_x: matrix, the data set from test
+@ train_y: matrix, true y values for the training set
+@ a:  matrix, the alpha matrix
+@ p: integer, number of dimensions in the kernel function
 """
 def kernel_predict(train_x, test_x, train_y, a, p):
     K = np.power((np.matmul(test_x, train_x.T) + 1), p)
@@ -155,8 +155,8 @@ valid, label_valid = load_file("pa2_valid.csv", has_label=True)
 """
 checks the prediction and calculate accuracy
 
-predict: matrix, the predictions without label
-label: matrix, the true y values
+@ predict: matrix, the predictions without label
+@ label: matrix, the true y values
 """
 def check_predictions(predict, label):
     error = 0 # counts the number of wrong predictions

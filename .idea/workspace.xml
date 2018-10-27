@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9190333e-a285-44b0-9a98-8418d3d5f90f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Perceptron.docx" afterPath="$PROJECT_DIR$/Perceptron.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/readme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="170" column="43" lean-forward="true" selection-start-line="170" selection-start-column="43" selection-end-line="170" selection-end-column="43" />
+            <state relative-caret-position="-1068">
+              <caret line="158" column="2" lean-forward="false" selection-start-line="158" selection-start-column="2" selection-end-line="158" selection-end-column="2" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -26,10 +27,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="86" lean-forward="false" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../CS534MachineLearning/implementation1/code/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2666">
+            <state relative-caret-position="105">
               <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
               <folding />
             </state>
@@ -58,6 +69,7 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/../CS534MachineLearning/implementation1/code/main.py" />
+        <option value="$PROJECT_DIR$/readme.txt" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -206,7 +218,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../CS534MachineLearning/implementation1/code/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2666">
+        <state relative-caret-position="105">
           <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
           <folding />
         </state>
@@ -214,11 +226,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="170" column="43" lean-forward="true" selection-start-line="170" selection-start-column="43" selection-end-line="170" selection-end-column="43" />
+        <state relative-caret-position="-1068">
+          <caret line="158" column="2" lean-forward="false" selection-start-line="158" selection-start-column="2" selection-end-line="158" selection-end-column="2" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="86" lean-forward="false" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
+          <folding />
         </state>
       </provider>
     </entry>
